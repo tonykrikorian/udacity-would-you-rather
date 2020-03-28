@@ -35,10 +35,13 @@ class Login extends Component {
   }
 }
 function mapStateToProps(state) {
-  const users = state.users.map(x => {
-    return { key: x.id, text: x.name, value: x.email };
-  });
-
+  const users = Object.keys(state.users)
+    .map(x => {
+      return state.users[x];
+    })
+    .map(x => {
+      return { key: x.id, text: x.name, value: x.id };
+    });
   return { users };
 }
 export default connect(mapStateToProps)(Login);
