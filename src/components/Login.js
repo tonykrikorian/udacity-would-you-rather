@@ -1,25 +1,36 @@
 import React, { Component } from "react";
-import { Card, Image, Button } from "semantic-ui-react";
+import { Card, Dropdown, Image, Container, Grid } from "semantic-ui-react";
+import logo from "../logo.svg";
 
 class Login extends Component {
   state = {};
+
   render() {
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header textAlign="center">Login</Card.Header>
-        </Card.Content>
-        <Card.Content extra>
-          <div className="ui two buttons">
-            <Button basic color="green">
-              Approve
-            </Button>
-            <Button basic color="red">
-              Decline
-            </Button>
-          </div>
-        </Card.Content>
-      </Card>
+      <div>
+        <Container textAlign="center">
+          <Grid textAlign="center">
+            <Card>
+              <Card.Content>
+                <Image size="medium" src={logo} />
+                <Card.Header textAlign="center">Login</Card.Header>
+                <Dropdown
+                  placeholder="Select a user"
+                  selection
+                  fluid
+                  options={[
+                    {
+                      key: "Jenny Hess",
+                      text: "Jenny Hess",
+                      value: "Jenny Hess"
+                    }
+                  ]}
+                ></Dropdown>
+              </Card.Content>
+            </Card>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }
