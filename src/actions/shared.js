@@ -8,4 +8,12 @@ function receiveData(posts) {
   };
 }
 
-export function handleInitialData() {}
+export function handleInitialData() {
+  return dispatch => {
+    return Promise.all([
+      axios.get("https://jsonplaceholder.typicode.com/posts")
+    ]).then(([posts]) => {
+      dispatch(receiveData(posts));
+    });
+  };
+}
