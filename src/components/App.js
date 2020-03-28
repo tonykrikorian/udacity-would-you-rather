@@ -22,5 +22,5 @@ class App extends Component {
 }
 
 export default connect(state => {
-  return { posts: state.posts };
+  return { posts: state.posts, users: state.users };
 })(App);
