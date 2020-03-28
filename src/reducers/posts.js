@@ -7,6 +7,6 @@ export default function posts(state = {}, action) {
     case GET_POST:
       return state.posts.filter(x => x.id == action.id);
     default:
-      state;
+      return state;
   }
 }
