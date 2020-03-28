@@ -1,14 +1,9 @@
 import React, { Component } from "react";
-import { handleInitialData } from "../actions/shared";
-import { connect } from "react-redux";
-import Login from "./Login";
+import Login from "../components/Login/Login";
 
 class App extends Component {
   state = {};
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(handleInitialData());
-  }
+
   render() {
     return (
       <div>
@@ -18,6 +13,4 @@ class App extends Component {
   }
 }
 
-export default connect(state => {
-  return { posts: state.posts, users: state.users };
-})(App);
+export default App;

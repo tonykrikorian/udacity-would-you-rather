@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { Card, Dropdown, Image, Container, Grid } from "semantic-ui-react";
-import logo from "../logo.svg";
+import logo from "../../logo.svg";
+import { connect } from "react-redux";
+import { handleInitialData } from "../../actions/shared";
 
 class Login extends Component {
   state = {};
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(handleInitialData());
+  }
 
   render() {
     return (
       <div>
         <Container textAlign="center">
-          <Grid textAlign="center">
+          <Grid textAlign="center" style={{ marginTop: "5rem" }}>
             <Card>
               <Card.Content>
                 <Image size="medium" src={logo} />
@@ -18,13 +24,7 @@ class Login extends Component {
                   placeholder="Select a user"
                   selection
                   fluid
-                  options={[
-                    {
-                      key: "Jenny Hess",
-                      text: "Jenny Hess",
-                      value: "Jenny Hess"
-                    }
-                  ]}
+                  options={this.props.users}
                 ></Dropdown>
               </Card.Content>
             </Card>
@@ -34,5 +34,11 @@ class Login extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  const users = state.users.map(x => {
+    return { key: x.id, text: x.name, value: x.email };
+  });
 
-export default Login;
+  return { users };
+}
+export default connect(mapStateToProps)(Login);
