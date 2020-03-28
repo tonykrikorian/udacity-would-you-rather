@@ -1,9 +1,10 @@
 import { ADD_POST, GET_POSTS, GET_POST } from "../types/postsTypes";
+import { RECEIVE_DATA } from "../types/sharedTypes";
 
-export default function posts(state = {}, action) {
+export default function posts(state = [], action) {
   switch (action.type) {
-    case GET_POSTS:
-      return { ...state, ...action.posts };
+    case RECEIVE_DATA:
+      return action.posts.data;
     case GET_POST:
       return state.posts.filter(x => x.id == action.id);
     default:
