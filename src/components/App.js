@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Login from "../components/Login/Login";
+import Login from "./Login";
 
 class App extends Component {
   state = {};

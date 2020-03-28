@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Card, Dropdown, Image, Container, Grid } from "semantic-ui-react";
-import logo from "../../logo.svg";
+import logo from "../logo.svg";
 import { connect } from "react-redux";
-import { handleInitialData } from "../../actions/shared";
+import { handleInitialData } from "../actions/shared";
 
 class Login extends Component {
   state = {};
