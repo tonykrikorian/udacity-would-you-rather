@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
+import Login from "./Login";
 
 class App extends Component {
   state = {};
@@ -11,11 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ul>
-          {this.props.posts.map(x => (
-            <li key={x.id}>{x.title}</li>
-          ))}
-        </ul>
+        <Login />
       </div>
     );
   }
