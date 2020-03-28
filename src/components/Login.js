@@ -3,6 +3,7 @@ import { Card, Dropdown, Image, Container, Grid } from "semantic-ui-react";
 import logo from "../logo.svg";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
+import { setAuthedUser } from "../actions/authedUsers";
 
 class Login extends Component {
   state = {};
@@ -12,6 +13,7 @@ class Login extends Component {
   }
 
   render() {
+    const { dispatch } = this.props;
     return (
       <div>
         <Container textAlign="center">
@@ -25,6 +27,7 @@ class Login extends Component {
                   selection
                   fluid
                   options={this.props.users}
+                  onChange={(e, data) => dispatch(setAuthedUser(data.value))}
                 ></Dropdown>
               </Card.Content>
             </Card>
